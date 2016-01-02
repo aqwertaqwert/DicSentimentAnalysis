@@ -14,4 +14,4 @@
 
 ##4.示例
 
-![](https://github.com/zzq2015/DicSentimentAnalysis/DictSentiment/DATA/useage.jpg)
+![](https://github.com/zzq2015/DicSentimentAnalysis/blob/master/DictSentiment/DATA/useage.jpg)
