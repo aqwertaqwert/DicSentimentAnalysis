@@ -16,14 +16,14 @@ public class analysisUI extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JButton confrombutton = new JButton("analysis");
-	private final JLabel lbAnalysis = new JLabel("ÓïÁÏ£º");
-	private final JLabel lbCode = new JLabel("ÓïÁÏ¸ñÊ½£º");
-	private final JLabel lbFC = new JLabel("·Ö´Ê£º");
-	private final JLabel lbSentiment = new JLabel("Çé¸Ğ£º");
-	private JTextField jtAnalysis = new JTextField("±£´æÂ·¾¶");
-	private JTextField jtFC    = new JTextField("±£´æÂ·¾¶");
-	private JTextField jtSentiment  = new JTextField("±£´æÂ·¾¶");
-	private JTextField jtCode  = new JTextField("ÎÄ¼ş¸ñÊ½£¨UTF8/GB2312£©");
+	private final JLabel lbAnalysis = new JLabel("è¯­æ–™ï¼š");
+	private final JLabel lbCode = new JLabel("è¯­æ–™æ ¼å¼ï¼š");
+	private final JLabel lbFC = new JLabel("åˆ†è¯ï¼š");
+	private final JLabel lbSentiment = new JLabel("æƒ…æ„Ÿï¼š");
+	private JTextField jtAnalysis = new JTextField("ä¿å­˜è·¯å¾„");
+	private JTextField jtFC    = new JTextField("ä¿å­˜è·¯å¾„");
+	private JTextField jtSentiment  = new JTextField("ä¿å­˜è·¯å¾„");
+	private JTextField jtCode  = new JTextField("æ–‡ä»¶æ ¼å¼ï¼ˆUTF8/GB2312ï¼‰");
 	BackgroundPanel bgp;
 	java.net.URL imgURL = analysisUI.class.getResource("robotImage.jpg");
 
@@ -35,12 +35,12 @@ public class analysisUI extends JFrame{
 			e.printStackTrace();
 		}
 	}
-//	ÉèÖÃ±³¾°Í¼Æ¬
+//	è®¾ç½®èƒŒæ™¯å›¾ç‰‡
 	public void drawBack(){
 		Container ct=this.getContentPane();
 		getContentPane().setLayout(null);
 		
-		//ÔÚÕâÀïÕÕÆ¬¿ÉÒÔ¿´µ½²âÊÔ½á¹û¡£	
+		//åœ¨è¿™é‡Œç…§ç‰‡å¯ä»¥çœ‹åˆ°æµ‹è¯•ç»“æœã€‚	
 		ImageIcon image1 = new ImageIcon(imgURL);
 		bgp=new BackgroundPanel(image1.getImage());
 		bgp.setBounds(0,0,530,288);
@@ -51,7 +51,7 @@ public class analysisUI extends JFrame{
 	public void init() {
 		Container cop = this.getContentPane();
 		cop.setLayout(null);
-//	ÉèÖÃÃÜÂë¸úÕËºÅÎ»ÖÃ±ß¿ò	
+//	è®¾ç½®ä½ç½®è¾¹æ¡†	
 		lbAnalysis.setBounds(100, 33, 51, 20);
 		cop.add(lbAnalysis);			
 		lbCode.setBounds(100, 63, 78, 20);
@@ -71,36 +71,28 @@ public class analysisUI extends JFrame{
 		cop.add(jtSentiment);
 
 
-//		ÉèÖÃanalysis°´Å¥
+//		è®¾ç½®analysisæŒ‰é’®
 		confrombutton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {					
-//					if (jtnumber.getText().equals("number") & jtkey.getText().equals("key") ){
-//						JOptionPane.showMessageDialog(null, "µÇÂ¼³É¹¦");
-//					}else if (jtnumber.getText().equals("")) {
-//						JOptionPane.showMessageDialog(null, "ÇëÊäÈëÑ§ºÅ");
-//					}else if (jtkey.getText().equals("")) {
-//						JOptionPane.showMessageDialog(null, "ÇëÊäÈëÃÜÂë");
-//					}else {
-//						JOptionPane.showMessageDialog(null, "¸ÃÓÃ»§µÄÃÜÂë²»¶Ô");
-//					}
 					String analysis = jtAnalysis.getText();
 					String FC = jtFC.getText();
 					String code = jtCode.getText();
 					String sentiment = jtSentiment.getText();
 					File analysisFile = new File(analysis);
 					if (analysisFile.exists()&&(code.equals("UTF8")||code.equals("GB2312"))) {
-						//¿ªÊ¼·Ö´Ê£¬ÊäÈëÏë·Ö´ÊµÄÎÄ¼şÒÔ¼°Òª±£´æµÄÎÄ¼ş
+						//å¼€å§‹åˆ†è¯ï¼Œè¾“å…¥æƒ³åˆ†è¯çš„æ–‡ä»¶ä»¥åŠè¦ä¿å­˜çš„æ–‡ä»¶
+						JOptionPane.showMessageDialog(null, "å¼€å§‹åˆ†æï¼=.=");
 						fengCi jd = new fengCi(analysis,FC,code);
 						jd.getFengci();
-						//¿ªÊ¼sentiment
+						//å¼€å§‹sentiment
 						sentiment a = new sentiment();
 						a.readDoc(FC,sentiment);
 						
 					}else{
-						JOptionPane.showMessageDialog(null, "ÇëÈ·¶¨ÊäÈëÕıÈ·£¡=.=");
+						JOptionPane.showMessageDialog(null, "è¯·ç¡®å®šè¾“å…¥æ­£ç¡®ï¼=.=");
 					}
 					
 				} catch (Exception e2) {
@@ -113,7 +105,7 @@ public class analysisUI extends JFrame{
 		
 		confrombutton.setBounds(171, 217, 100, 34);
 		cop.add(confrombutton);
-		//Ìí¼Ó±³¾°Í¼Æ¬
+		//æ·»åŠ èƒŒæ™¯å›¾ç‰‡
 		drawBack();
 	}
 
